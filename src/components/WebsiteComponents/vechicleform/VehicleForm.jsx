@@ -20,6 +20,7 @@ import AddVehicleForm from "./AddVehicleForm";
 import Saleform from "./Saleform";
 import ViewSaleModal from "./ViewSaleModal";
 import { Image_URL } from "@/config/constants";
+import { toast } from "react-toastify";
 
 export default function VehicleForm() {
   const getImage = (media) => {
@@ -77,18 +78,28 @@ export default function VehicleForm() {
     setIsViewModalOpen(true);
   };
 
-  const handleDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete this vehicle?")) {
-      try {
-        await vehicalsApi.deleteVechical(id);
-        toast.success("Vehicle deleted successfully!");
-        fetchVehicles();
-      } catch (error) {
-        console.error("Error deleting vehicle:", error);
-      }
-    }
-  };
+  // const handleDelete = async (id) => {
+  //   if (window.confirm("Are you sure you want to delete this vehicle?")) {
+  //     try {
+  //       await vehicalsApi.deleteVechical(id);
+  //       toast.success("Vehicle deleted successfully!");
+  //       fetchVehicles();
+  //     } catch (error) {
+  //       console.error("Error deleting vehicle:", error);
+  //     }
+  //   }
+  // };
 
+const handleDelete = async (id) => {
+  try {
+    await vehicalsApi.deleteVechical(id);
+    toast.success("Vehicle deleted successfully 🗑️");
+    fetchVehicles();
+  } catch (error) {
+    console.error("Error deleting vehicle:", error);
+    toast.error("Failed to delete vehicle ❌");
+  }
+};
 
 
 
