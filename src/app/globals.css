@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap'); */
+
+
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
+/* globals.css ya index.css */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
+}
+
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-hanken), sans-serif;
+  
+
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.ExtSVGElem {
+  fill: #f0f0f0; /* Light grey background */
+  stroke: #c0c0c0; /* Light grey border for unselected parts */
+  stroke-width: 0.5;
+  cursor: pointer;
+  transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
+}
+
+.ExtSVGElem.enabled {
+  fill: #f0f0f0; /* Same as default for consistency with image */
+  stroke: #c0c0c0;
+}
+
+.ExtSVGElem:hover {
+  fill: #e0e0e0; /* Slightly darker on hover */
+}
+
+.ExtSVGElem.selected-part {
+  fill: #000000; /* Black fill for selected parts */
+  stroke: #000000; /* Black border for selected parts */
+  stroke-width: 2;
+}
+
+/* Google Translate UI Cleanup */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+.goog-te-menu-value span:nth-child(3),
+.goog-te-menu-value span:nth-child(5) {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  font-family: inherit !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Apply Open Sans to Bengali text */
+[lang="bn"], 
+.goog-te-menu-value,
+.bengali-font {
+  font-family: var(--font-open-sans), sans-serif !important;
+}
+
+/* Custom Language Toggle Styles */
+.lang-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hide Scrollbar but keep scroll functionality */
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
+.ExtSVGElem {
+  fill: #f0f0f0; /* Light grey background */
+  stroke: #c0c0c0; /* Light grey border for unselected parts */
+  stroke-width: 0.5;
+  cursor: pointer;
+  transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
+}
+
+.ExtSVGElem.enabled {
+  fill: #f0f0f0; /* Same as default for consistency with image */
+  stroke: #c0c0c0;
+}
+
+.ExtSVGElem:hover {
+  fill: #e0e0e0; /* Slightly darker on hover */
+}
+
+.ExtSVGElem.selected-part {
+  fill: #000000; /* Black fill for selected parts */
+  stroke: #000000; /* Black border for selected parts */
+  stroke-width: 2;
+}
