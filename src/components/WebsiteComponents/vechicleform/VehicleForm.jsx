@@ -81,6 +81,7 @@ export default function VehicleForm() {
     if (window.confirm("Are you sure you want to delete this vehicle?")) {
       try {
         await vehicalsApi.deleteVechical(id);
+        toast.success("Vehicle deleted successfully!");
         fetchVehicles();
       } catch (error) {
         console.error("Error deleting vehicle:", error);
