@@ -205,12 +205,12 @@ export default function VehicleForm() {
                           </button> */}
 
                           {/* Only show Add to Sale if not already listed */}
-                          {!v.vehicleSale && (
+                          {!v.vehicleSales.length > 0 && (
                             <button
                               onClick={() => handleOpenSaleModal(v)}
                               className="flex items-center gap-2 px-4 py-2.5 bg-[#EB0102]/5 text-[#EB0102] rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-[#EB0102] hover:text-white transition-all border border-[#EB0102]/20 ml-2"
                             >
-                              <LuTag className="w-3.5 h-3.5" /> Add to Sale
+                              <LuTag className="w-3.5 h-3.5" /> Add to Sell
                             </button>
                           )}
                         </div>
@@ -261,7 +261,7 @@ export default function VehicleForm() {
         />
       )}
 
-      {selectedVehicle && (
+      {/* {selectedVehicle && (
         <Saleform
           isOpen={isSaleModalOpen}
           onClose={() => {
@@ -270,7 +270,23 @@ export default function VehicleForm() {
           }}
           vehicle={selectedVehicle}
         />
-      )}
+      )} */}
+      {selectedVehicle && (
+  <Saleform
+    isOpen={isSaleModalOpen}
+    onClose={() => {
+      setIsSaleModalOpen(false);
+      setSelectedVehicle(null);
+    }}
+    vehicle={selectedVehicle}
+    onSuccess={() => {
+      setIsSaleModalOpen(false);
+      setSelectedVehicle(null);
+      fetchVehicles(); // 🔥 IMPORTANT
+    }}
+  />
+)}
+
 
       {selectedVehicle && (
         <ViewSaleModal

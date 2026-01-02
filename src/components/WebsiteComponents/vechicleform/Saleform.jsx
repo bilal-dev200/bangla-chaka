@@ -82,10 +82,15 @@ export default function Saleform({ isOpen, onClose, vehicle, onSuccess }) {
         try {
             if (isEdit) {
                 await vehicalsApi.updateSale(sale.id, payload);
-                toast.success("Sale details updated successfully!");
+                toast.success("sell details updated successfully!");
             } else {
+                // await vehicalsApi.submitSale(payload);
+                // toast.success("Application for sale submitted successfully!");
                 await vehicalsApi.submitSale(payload);
-                toast.success("Application for sale submitted successfully!");
+toast.success("Application for sell submitted successfully!");
+
+if (onSuccess) onSuccess(); // ✅ notify parent
+onClose();
             }
             if (onSuccess) onSuccess();
             onClose();
@@ -249,7 +254,7 @@ export default function Saleform({ isOpen, onClose, vehicle, onSuccess }) {
                                                         /> */}
                                                         <div className="flex flex-col gap-1.5">
   <label className="text-[8px] font-black text-slate-800 uppercase tracking-[0.2em] ml-2">
-    Sale Price
+    Sell Price
   </label>
   <div className="relative group/field">
     <LuTag className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/field:text-[#EB0102] w-4 h-4" />
