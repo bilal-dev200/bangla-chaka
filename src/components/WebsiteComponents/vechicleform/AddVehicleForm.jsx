@@ -403,7 +403,7 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
                                             onClick={onClose}
                                             className="px-8 py-3.5 bg-slate-100 text-slate-500 rounded-xl font-black uppercase tracking-[0.3em] hover:bg-slate-200 transition-all text-xs"
                                         >
-                                            Discard Assets
+                                            Cancel
                                         </button>
                                         <button
                                             type="submit"
