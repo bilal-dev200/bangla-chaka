@@ -222,13 +222,13 @@ const handleDelete = async (id) => {
                           >
                             <LuView className="w-4 h-4" />
                           </button> */}
-                          <button
+                          {/* <button
                             onClick={() => handleOpenEditModal(v)}
                             className="p-2.5 bg-slate-100 text-slate-500 rounded-xl hover:bg-slate-900 hover:text-white transition-all shadow-sm"
                             title="Edit Vehicle"
                           >
                             <LuPencil className="w-4 h-4" />
-                          </button>
+                          </button> */}
                           <button
                             onClick={() => handleDelete(v.id)}
                             className="p-2.5 bg-slate-100 text-[#EB0102] rounded-xl hover:bg-[#EB0102] hover:text-white transition-all shadow-sm"

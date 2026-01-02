@@ -57,12 +57,21 @@ const Navbar = () => {
                 Become a Dealer
               </Link>
             )}
-            <Link
+            {/* <Link
               href="/vehicle-form"
               className="hidden sm:inline px-3 py-2 font-medium text-white bg-[#EB0102] border-r border-b"
             >
               Your Garage
-            </Link>
+            </Link> */}
+            {user?.userType === "DEALER" && (
+  <Link
+    href="/vehicle-form"
+    className="hidden sm:inline px-3 py-2 font-medium text-white bg-[#EB0102] border-r border-b"
+  >
+    Your Garage
+  </Link>
+)}
+
           </div>
         </div>
       </div>
