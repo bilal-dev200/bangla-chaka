@@ -14,6 +14,9 @@ addVehicle: (payload) => axiosClient.post("/dealer/vehicles", payload),
   dealerVechical: () => {
     return axiosClient.get(`/dealer/vehicles?populate[vehicleSale][populate]=*&populate[vehicle_sale][populate]=*&populate[sale][populate]=*&populate[vehicleMedia][populate]=*&populate[vehicleModel][populate]=*&populate[trim][populate]=*`);
   },
+  deleteVechical: (id) => {
+    return axiosClient.delete(`/dealer/vehicles/${id}`);
+  },
   submitSale: (payload) => axiosClient.post("dealer/vehicle-sales", payload),
   updateSale: (id, payload) => axiosClient.put(`dealer/vehicle-sales/${id}`, payload),
   getSalesList: () => axiosClient.get("dealer/vehicle-sales"),

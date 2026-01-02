@@ -71,10 +71,27 @@ export default function VehicleForm() {
     setIsEditModalOpen(true);
   };
 
+
   const handleOpenViewModal = (vehicle) => {
     setSelectedVehicle(vehicle);
     setIsViewModalOpen(true);
   };
+
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this vehicle?")) {
+      try {
+        await vehicalsApi.deleteVechical(id);
+        fetchVehicles();
+      } catch (error) {
+        console.error("Error deleting vehicle:", error);
+      }
+    }
+  };
+
+
+
+
+
 
   return (
     <div className="min-h-screen bg-slate-50 p-4 md:p-8">
@@ -200,9 +217,13 @@ export default function VehicleForm() {
                           >
                             <LuPencil className="w-4 h-4" />
                           </button>
-                          {/* <button className="p-2.5 bg-slate-100 text-[#EB0102] rounded-xl hover:bg-[#EB0102] hover:text-white transition-all shadow-sm" title="Delete Vehicle">
+                          <button
+                            onClick={() => handleDelete(v.id)}
+                            className="p-2.5 bg-slate-100 text-[#EB0102] rounded-xl hover:bg-[#EB0102] hover:text-white transition-all shadow-sm"
+                            title="Delete Vehicle"
+                          >
                             <LuTrash2 className="w-4 h-4" />
-                          </button> */}
+                          </button>
 
                           {/* Only show Add to Sale if not already listed */}
                           {!v.vehicleSales.length > 0 && (
@@ -272,20 +293,20 @@ export default function VehicleForm() {
         />
       )} */}
       {selectedVehicle && (
-  <Saleform
-    isOpen={isSaleModalOpen}
-    onClose={() => {
-      setIsSaleModalOpen(false);
-      setSelectedVehicle(null);
-    }}
-    vehicle={selectedVehicle}
-    onSuccess={() => {
-      setIsSaleModalOpen(false);
-      setSelectedVehicle(null);
-      fetchVehicles(); // 🔥 IMPORTANT
-    }}
-  />
-)}
+        <Saleform
+          isOpen={isSaleModalOpen}
+          onClose={() => {
+            setIsSaleModalOpen(false);
+            setSelectedVehicle(null);
+          }}
+          vehicle={selectedVehicle}
+          onSuccess={() => {
+            setIsSaleModalOpen(false);
+            setSelectedVehicle(null);
+            fetchVehicles(); // 🔥 IMPORTANT
+          }}
+        />
+      )}
 
 
       {selectedVehicle && (
