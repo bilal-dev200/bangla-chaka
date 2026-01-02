@@ -93,7 +93,7 @@ export default function VehicleForm() {
 const handleDelete = async (id) => {
   try {
     await vehicalsApi.deleteVechical(id);
-    toast.success("Vehicle deleted successfully 🗑️");
+    toast.success("Vehicle deleted successfully");
     fetchVehicles();
   } catch (error) {
     console.error("Error deleting vehicle:", error);
