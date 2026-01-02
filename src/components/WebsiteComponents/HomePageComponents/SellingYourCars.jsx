@@ -74,9 +74,9 @@ export default function SellingYourCars() {
       <p className="text-gray-500 mt-4 text-sm md:text-base">
         Your car, your price—sell on your terms and get the best deal effortlessly.
       </p>
-      <button className="mt-6 bg-[#EB0102] text-white px-6 py-3 rounded-full text-sm font-semibold shadow-md hover:bgpurple-900 transition">
+      {/* <button className="mt-6 bg-[#EB0102] text-white px-6 py-3 rounded-full text-sm font-semibold shadow-md hover:bgpurple-900 transition">
         List Your Car Now
-      </button>
+      </button> */}
     </div>
 
    {/* Right Image */}
