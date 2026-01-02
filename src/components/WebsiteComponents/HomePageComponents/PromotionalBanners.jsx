@@ -46,7 +46,7 @@ export default function PromotionalBanners() {
       {/* Know Your Car's Worth Banner */}
       <div className="relative rounded-xl overflow-hidden shadow-lg">
         <img
-          src="/Images/upgradeCar.png"
+          src="/Images/sec.png"
           alt="Car Worth"
           className="w-full h-56 sm:h-64 md:h-auto object-cover rounded-xl"
           // onError={(e) => {
