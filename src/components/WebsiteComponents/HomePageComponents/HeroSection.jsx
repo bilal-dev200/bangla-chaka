@@ -524,11 +524,11 @@ export default function HeroSection() {
 
               {/* Buttons (Aligned Left) */}
               <div className="mt-6 mb-10 flex space-x-4">
-                <button className="bg-white text-gray-800 px-6 sm:px-8 py-2 rounded-3xl font-medium text-sm
+                {/* <button className="bg-white text-gray-800 px-6 sm:px-8 py-2 rounded-3xl font-medium text-sm
 shadow-sm outline-none focus:outline-none focus:ring-0
 hover:bg-[#EB0102] hover:text-white transition-colors duration-300">
                   Find More
-                </button>
+                </button> */}
               </div>
             </div>
 
