@@ -32,15 +32,15 @@ export default function Saleform({ isOpen, onClose, vehicle, onSuccess }) {
     useEffect(() => {
         if (isOpen) {
             if (isEdit) {
-             reset({
-  zipCode: sale?.zipCode || "",
-  warranty: sale?.warranty || "",
-  message: sale?.description || "",
-  address: sale?.address || "",
-  sellerNote: sale?.sellerNote || "",
-  price: sale?.price || "",
-  manufactureYear: sale?.manufactureYear || ""
-});
+                reset({
+                    zipCode: sale?.zipCode || "",
+                    warranty: sale?.warranty || "",
+                    message: sale?.description || "",
+                    address: sale?.address || "",
+                    sellerNote: sale?.sellerNote || "",
+                    price: sale?.price || "",
+                    manufactureYear: sale?.manufactureYear || ""
+                });
 
             } else {
                 reset({
@@ -87,10 +87,10 @@ export default function Saleform({ isOpen, onClose, vehicle, onSuccess }) {
                 // await vehicalsApi.submitSale(payload);
                 // toast.success("Application for sale submitted successfully!");
                 await vehicalsApi.submitSale(payload);
-toast.success("Application for sell submitted successfully!");
+                toast.success("Application for sell submitted successfully!");
 
-if (onSuccess) onSuccess(); // ✅ notify parent
-onClose();
+                if (onSuccess) onSuccess(); // ✅ notify parent
+                onClose();
             }
             if (onSuccess) onSuccess();
             onClose();
@@ -253,35 +253,40 @@ onClose();
                                                             value={vehicle?.year || ""}
                                                         /> */}
                                                         <div className="flex flex-col gap-1.5">
-  <label className="text-[8px] font-black text-slate-800 uppercase tracking-[0.2em] ml-2">
-    Sell Price
-  </label>
-  <div className="relative group/field">
-    <LuTag className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/field:text-[#EB0102] w-4 h-4" />
-    <input
-      type="number"
-      {...register("price", { required: "Price is required" })}
-      className={`w-full pl-11 pr-3 py-2.5 bg-white border-[2px] rounded-xl text-xs font-bold
+                                                            <label className="text-[8px] font-black text-slate-800 uppercase tracking-[0.2em] ml-2">
+                                                                Sell Price
+                                                            </label>
+                                                            <div className="relative group/field">
+                                                                <LuTag className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/field:text-[#EB0102] w-4 h-4" />
+                                                                <input
+                                                                    type="number"
+                                                                    {...register("price", { required: "Price is required" })}
+                                                                    className={`w-full pl-11 pr-3 py-2.5 bg-white border-[2px] rounded-xl text-xs font-bold
         ${errors.price ? "border-red-100 focus:border-[#EB0102]" : "border-slate-50 focus:border-[#EB0102]"}`}
-      placeholder="e.g. 200000"
-    />
-  </div>
-</div>
-<div className="flex flex-col gap-1.5">
-  <label className="text-[8px] font-black text-slate-800 uppercase tracking-[0.2em] ml-2">
-    Manufacture Year
-  </label>
-  <div className="relative group/field">
-    <LuCar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/field:text-[#EB0102] w-4 h-4" />
-    <input
-      type="number"
-      {...register("manufactureYear", { required: "Year is required" })}
-      className={`w-full pl-11 pr-3 py-2.5 bg-white border-[2px] rounded-xl text-xs font-bold
+                                                                    placeholder="e.g. 200000"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex flex-col gap-1.5">
+                                                            <label className="text-[8px] font-black text-slate-800 uppercase tracking-[0.2em] ml-2">
+                                                                Manufacture Year
+                                                            </label>
+                                                            <div className="relative group/field">
+                                                                <LuCar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within/field:text-[#EB0102] w-4 h-4 pointer-events-none" />
+                                                                <select
+                                                                    {...register("manufactureYear", { required: "Year is required" })}
+                                                                    className={`w-full pl-11 pr-3 py-2.5 bg-white border-[2px] rounded-xl text-xs font-bold appearance-none cursor-pointer
         ${errors.manufactureYear ? "border-red-100 focus:border-[#EB0102]" : "border-slate-50 focus:border-[#EB0102]"}`}
-      placeholder="e.g. 2021"
-    />
-  </div>
-</div>
+                                                                >
+                                                                    <option value="">Select Year</option>
+                                                                    {Array.from({ length: 36 }, (_, i) => 2025 - i).map((year) => (
+                                                                        <option key={year} value={year}>
+                                                                            {year}
+                                                                        </option>
+                                                                    ))}
+                                                                </select>
+                                                            </div>
+                                                        </div>
 
 
                                                     </div>

@@ -85,6 +85,11 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
         { id: "CERTIFIED_PRE_OWNED", name: "Certified Pre-Owned" },
     ]);
 
+    const years = Array.from({ length: 27 }, (_, i) => {
+        const year = 2025 - i;
+        return { id: year, name: year };
+    });
+
     const {
         register,
         handleSubmit,
@@ -208,7 +213,7 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
 
             if (isEdit) {
                 await vehicalsApi.updateVehicle(vehicle.id, formData);
-                 toast.success("Vehicle updated successfully!");
+                toast.success("Vehicle updated successfully!");
             } else {
                 await vehicalsApi.addVehicle(formData);
                 toast.success("Vehicle successfully added to fleet!");
@@ -223,7 +228,7 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
             console.error(`❌ Error ${isEdit ? 'updating' : 'adding'} vehicle:`, error);
             // safe extraction of error message
             const serverMessage = error?.response?.data?.message || error.message || "Unknown error";
-             toast.error(`Failed to ${isEdit ? 'update' : 'add'} vehicle. Server says: ${serverMessage}`);
+            toast.error(`Failed to ${isEdit ? 'update' : 'add'} vehicle. Server says: ${serverMessage}`);
         }
     };
 
@@ -327,7 +332,7 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
                                                     <DropdownField label="Transmission" name="transmissionId" icon={<LuZap className="w-4 h-4" />} options={transmissions} register={register} errors={errors} />
                                                     <InputField label="Engine Capacity (cc)" name="cc" type="number" icon={<LuCpu className="w-4 h-4" />} placeholder="e.g. 1500" register={register} errors={errors} />
                                                     <InputField label="Asset Mileage (km)" name="mileage" type="number" icon={<LuCompass className="w-4 h-4" />} placeholder="e.g. 45000" register={register} errors={errors} />
-                                                    <InputField label="Production Year" name="year" type="number" icon={<LuCalendar className="w-4 h-4" />} placeholder="e.g. 2022" register={register} errors={errors} />
+                                                    <DropdownField label="Production Year" name="year" icon={<LuCalendar className="w-4 h-4" />} options={years} register={register} errors={errors} />
                                                     <DropdownField label="Engine State" name="condition" icon={<LuSettings className="w-4 h-4" />} options={conditions} register={register} errors={errors} />
                                                 </div>
                                             </div>
