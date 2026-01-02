@@ -4,6 +4,7 @@ import React, { Fragment, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { vehicalsApi } from "@/lib/api/vehical";
+import { toast } from "react-toastify";
 import {
     LuX,
     LuTag,
@@ -81,10 +82,10 @@ export default function Saleform({ isOpen, onClose, vehicle, onSuccess }) {
         try {
             if (isEdit) {
                 await vehicalsApi.updateSale(sale.id, payload);
-                alert("Sale details updated successfully!");
+                toast.success("Sale details updated successfully!");
             } else {
                 await vehicalsApi.submitSale(payload);
-                alert("Application for sale submitted successfully!");
+                toast.success("Application for sale submitted successfully!");
             }
             if (onSuccess) onSuccess();
             onClose();

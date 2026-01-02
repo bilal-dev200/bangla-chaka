@@ -8,6 +8,7 @@ import { authApi } from "@/lib/api/auth";
 import { dropDownApi } from "@/lib/api/dropdown";
 import { vehicalsApi } from "@/lib/api/vehical";
 import { Dialog, Transition } from "@headlessui/react";
+import { toast } from "react-toastify";
 import { Image_URL } from "@/config/constants";
 import {
     LuCar,
@@ -207,10 +208,10 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
 
             if (isEdit) {
                 await vehicalsApi.updateVehicle(vehicle.id, formData);
-                alert("Vehicle updated successfully!");
+                 toast.success("Vehicle updated successfully!");
             } else {
                 await vehicalsApi.addVehicle(formData);
-                alert("Vehicle successfully added to fleet!");
+                toast.success("Vehicle successfully added to fleet!");
             }
 
             reset();
@@ -222,7 +223,7 @@ export default function AddVehicleForm({ isOpen, onClose, onSuccess, vehicle }) 
             console.error(`❌ Error ${isEdit ? 'updating' : 'adding'} vehicle:`, error);
             // safe extraction of error message
             const serverMessage = error?.response?.data?.message || error.message || "Unknown error";
-            alert(`Failed to ${isEdit ? 'update' : 'add'} vehicle. Server says: ${serverMessage}`);
+             toast.error(`Failed to ${isEdit ? 'update' : 'add'} vehicle. Server says: ${serverMessage}`);
         }
     };
 
