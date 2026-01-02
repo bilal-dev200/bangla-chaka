@@ -58,7 +58,7 @@ const Navbar = () => {
               </Link>
             )}
             <Link
-              href="/VehicleForm"
+              href="/vehicle-form"
               className="hidden sm:inline px-3 py-2 font-medium text-white bg-[#EB0102] border-r border-b"
             >
               Your Garage
